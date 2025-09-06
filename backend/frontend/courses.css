@@ -1,0 +1,224 @@
+/* .top{
+    height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #022645, #00f2fe);
+      color: rgb(4, 45, 50);
+      text-align: center;
+      border-radius: 90px;
+} */
+ body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.section-title .material-icons {
+    font-size: 1.5em;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group .form-control {
+    flex: 1;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+    border-color: #3F5EFB;
+    outline: none;
+}
+
+select {
+    appearance: none;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23666"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 20px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 20px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-item label {
+    font-size: 0.95em;
+    color: #555;
+    cursor: pointer;
+}
+
+.add-button {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #666;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-button:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+#career-goals-container .form-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.cancel-button,
+.save-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+}
+
+.cancel-button {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.cancel-button:hover {
+    background-color: #f0f0f0;
+}
+
+.save-button {
+    color: white;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(82, 88, 177, 1) 52%, rgba(252, 70, 107, 1) 100%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.save-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.save-button .material-icons {
+    font-size: 1.2em;
+}
+
+/* Optional: To hide the default number input arrows on some browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -webkit-appearance: none; 
+    appearance: none; /* Standard property, for future support */
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .cancel-button,
+    .save-button {
+        width: 100%;
+        text-align: center;
+    }
+}
