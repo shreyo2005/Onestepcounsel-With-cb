@@ -83,6 +83,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recommended Colleges</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -127,15 +131,29 @@
     .back-btn:hover {
       background: #0056b3;
     }
+        header {
+      background: #2c3e50;
+      color: white;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 20px;
+    }
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Your Recommended Colleges</h2>
     <div id="recommendations"></div>
+  <div id="map"></div>
     <button class="back-btn" onclick="window.location.href='courses.html'">⬅ Back to Profile</button>
   </div>
-
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Dataset -->
+  <script type="module" src="./jk_colleges.js"></script>
   <script src="recommendations.js"></script>
 </body>
 </html> 

@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
   <link rel="stylesheet" href="style.css">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400..800&family=Bungee+Spice&family=Emblema+One&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Banner Section -->
@@ -208,6 +210,54 @@
   </div>
 </div>
 
+<!--Faq section-->
+ <div class="faq-container">
+    <!-- Header -->
+    <div class="faq-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Get answers to the most common questions about career counseling and academic choices</p>
+    </div>
+
+    <!-- FAQs -->
+    <div class="faq">
+      <div class="faq-question">When should I start career counseling? <span class="arrow">▼</span></div>
+      <div class="faq-answer">The best time to start career counseling is right after Class 9 or 10, when you begin deciding streams and subjects.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">How do I choose between Science, Commerce, and Arts? <span class="arrow">▼</span></div>
+      <div class="faq-answer">Your choice should be based on your interests, strengths, and future career goals. Our platform helps you explore these paths.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">Is vocational education a good option? <span class="arrow">▼</span></div>
+      <div class="faq-answer">Yes, vocational education provides practical skills that directly connect you to industry jobs and entrepreneurship opportunities.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">What changes does NEP 2020 bring for students? <span class="arrow">▼</span></div>
+      <div class="faq-answer">The NEP 2020 introduces multidisciplinary learning, multiple entry-exit options, and greater flexibility in choosing subjects.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">How important are entrance exams for career success? <span class="arrow">▼</span></div>
+      <div class="faq-answer">Entrance exams are important for specific careers like engineering, medicine, or civil services, but there are many other career paths too.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">Can I change my stream after Class 11th? <span class="arrow">▼</span></div>
+      <div class="faq-answer">Changing streams is possible in some schools/boards but may require bridging courses and approval from the institution.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">What role do extracurricular activities play in admissions? <span class="arrow">▼</span></div>
+      <div class="faq-answer">Extracurriculars showcase leadership, creativity, and teamwork — they add value to your profile in college admissions.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">How do I prepare for competitive exams alongside board exams? <span class="arrow">▼</span></div>
+      <div class="faq-answer">Time management is key — plan a balanced schedule, focus on NCERT fundamentals, and practice mock tests regularly.</div>
+    </div>
 
   <!-- Login Section -->
   <section id="login" class="login">
@@ -235,6 +285,17 @@
   </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="onestep.js"></script>
+    <script>
+        const faqs = document.querySelectorAll(".faq");
+    faqs.forEach(faq => {
+      faq.addEventListener("click", () => {
+        faqs.forEach(f => {
+          if (f !== faq) f.classList.remove("active");
+        });
+        faq.classList.toggle("active");
+      });
+    });
+    </script>
    
 
 </body>

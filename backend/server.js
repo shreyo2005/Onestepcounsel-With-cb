@@ -1,66 +1,52 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
+import express from "express";
+import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from "url";
 
-
+// Fix __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
-
-
-
-
-
-// Middleware iska
+// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.json());
-app.use(express.static("frontend")); // thtml files aanbe
+app.use(express.static(path.join(__dirname, "frontend"))); // serve frontend
 
-// Mock login credentials (for testing only)
-// const mockUser = {
-//   email: "test@example.com",
-//   password: "123456"
-// };
+// --- Mock College Data (J&K Government Colleges) ---
+const JK_COLLEGES = [
+  { name: "Government Degree College, Anantnag", district: "Anantnag", field: "Science", lat: 33.7315, lon: 75.1500 },
+  { name: "Government Degree College, Kathua", district: "Kathua", field: "Arts", lat: 32.3776, lon: 75.5169 },
+  { name: "Government Degree College, Ganderbal", district: "Ganderbal", field: "Commerce", lat: 34.2556, lon: 74.7760 },
+  { name: "Government Degree College, Shopian", district: "Shopian", field: "Science", lat: 33.7159, lon: 74.7898 },
+  { name: "Abdul Ahad Azad Memorial Degree College, Bemina", district: "Srinagar", field: "Arts", lat: 34.0918, lon: 74.8058 }
+];
 
-// Login page ke details lene
+// --- Routes ---
+
+// Home (index.html)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+});
+
+// Login route
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
-  //if (email === mockUser.email && password === mockUser.password) {
-    // Redirect krega to course selection page if the emmail and password is correct 
-  if(email && password){
+  if (email && password) {
     res.sendFile(path.join(__dirname, "frontend", "courses.html"));
   } else {
-    res.send("<h3>please enter correct credentials. <a href='/index.html'>Try again</a></h3>");
+    res.send("<h3>Please enter correct credentials. <a href='/index.html'>Try again</a></h3>");
   }
 });
 
-//index.html browser ke pathaabe  
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "index.html","recommendations.html"));
-});
-
-
-
-// eta colleges recommend korbe.
-
-// Mock college data
-const colleges = [
-  { name: "IIT Bombay", field: "Mathematics", rank: 1 },
-  { name: "NIT Trichy", field: "Mathematics", rank: 2 },
-  { name: "DU", field: "Arts", rank: 3 },
-  { name: "IIM Ahmedabad", field: "Mathematics", rank: 4 },
-  { name: "IIT Delhi", field: "Mathematics", rank: 5 }
-];
-
+// Recommendations API
 app.post("/recommendations", (req, res) => {
-
-  console.log("Received data:", req.body); 
-  
   const { interests } = req.body;
 
-  let results = colleges.filter(college =>
+  // Filter colleges based on field
+  let results = JK_COLLEGES.filter(college =>
     interests.includes(college.field)
   );
 
@@ -69,8 +55,8 @@ app.post("/recommendations", (req, res) => {
   res.json({ recommendations: results });
 });
 
-
+// --- Start Server ---
 const PORT = 5500;
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`✅ Server running at http://localhost:${PORT}`);
 });
