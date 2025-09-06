@@ -1,0 +1,141 @@
+<!-- document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("recommendations");
+    const recommendations = JSON.parse(localStorage.getItem("recommendations")) || [];
+
+    if (recommendations.length > 0) {
+        recommendations.forEach(college => {
+            let p = document.createElement("p");
+            p.textContent = `${college.name} (${college.field}) - Rank ${college.rank}`;
+            container.appendChild(p);
+        });
+    } else {
+        container.innerHTML = "<p>No matching colleges found.</p>";
+    }
+}); -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommended Colleges</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .college-card {
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+      transition: 0.3s;
+    }
+    .college-card:hover {
+      background: #f0f8ff;
+    }
+    .back-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .back-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Your Recommended Colleges</h2>
+    <div id="recommendations-list"></div>
+    <button class="back-btn" onclick="window.location.href='courses.html'">⬅ Back to Profile</button>
+  </div>
+
+  <script src="recommendations.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommended Colleges</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .college-card {
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+      transition: 0.3s;
+    }
+    .college-card:hover {
+      background: #f0f8ff;
+    }
+    .back-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .back-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Your Recommended Colleges</h2>
+    <div id="recommendations"></div>
+    <button class="back-btn" onclick="window.location.href='courses.html'">⬅ Back to Profile</button>
+  </div>
+
+  <script src="recommendations.js"></script>
+</body>
+</html> 
