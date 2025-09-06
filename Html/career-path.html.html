@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Career & College Recommender (India) — Prototype</title>
+  <meta name="description" content="Hackathon-ready single-file app that recommends courses, nearby colleges, career paths, and study materials for Indian students after 10th/12th." />
+  <link rel="stylesheet" href="/dockurSIH/CSS/career-path.css">
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">🎓 EduGuide AI</div>
+      <div style="margin-left:auto" class="muted">Courses • Colleges • Careers • Materials</div>
+    </div>
+  </header>
+ 
+  <main class="container grid grid-2" style="margin-top:18px">
+    <!-- Left: Quiz & Controls -->
+    <section class="card" id="quizCard">
+      <h2>Tell us about your interests</h2>
+      <p class="muted">Answer a few quick questions. We’ll suggest <b>courses</b>, <b>nearby colleges</b>, <b>careers</b> and <b>study materials</b> that fit you.
+      </p>
+
+      <div class="row row-2" style="margin-top:10px">
+        <div>
+          <label>Class</label>
+          <div class="checklist" data-name="classLevel">
+            <span class="chip" data-val="10">After 10th</span>
+            <span class="chip" data-val="12">After 12th</span>
+          </div>
+        </div>
+        <div>
+          <label>Recent Marks (%)</label>
+          <input type="number" id="marks" min="0" max="100" placeholder="e.g., 78" />
+        </div>
+      </div>
+
+      <div class="row row-3" style="margin-top:6px">
+        <div>
+          <label>Subjects you enjoy</label>
+          <div class="checklist" data-name="subjects">
+            <span class="chip" data-val="Physics">Physics</span>
+            <span class="chip" data-val="Chemistry">Chemistry</span>
+            <span class="chip" data-val="Maths">Maths</span>
+            <span class="chip" data-val="Biology">Biology</span>
+            <span class="chip" data-val="CS">Computer Science</span>
+            <span class="chip" data-val="Accounts">Accounts</span>
+            <span class="chip" data-val="Economics">Economics</span>
+            <span class="chip" data-val="Business">Business Studies</span>
+            <span class="chip" data-val="English">English</span>
+            <span class="chip" data-val="History">History</span>
+            <span class="chip" data-val="Geography">Geography</span>
+            <span class="chip" data-val="FineArts">Fine Arts</span>
+          </div>
+        </div>
+        <div>
+          <label>Interests / Aspirations</label>
+          <div class="checklist" data-name="interests">
+            <span class="chip" data-val="Coding">Coding</span>
+            <span class="chip" data-val="Medicine">Medicine</span>
+            <span class="chip" data-val="Design">Design</span>
+            <span class="chip" data-val="Business">Business</span>
+            <span class="chip" data-val="Research">Research</span>
+            <span class="chip" data-val="CivilService">Civil Service</span>
+            <span class="chip" data-val="Environment">Environment</span>
+            <span class="chip" data-val="Media">Media</span>
+          </div>
+        </div>
+        <div>
+          <label>Learning style</label>
+          <div class="checklist" data-name="style">
+            <span class="chip" data-val="HandsOn">Hands-on / Practical</span>
+            <span class="chip" data-val="Theory">Theory / Reading</span>
+            <span class="chip" data-val="Creative">Creative / Visual</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-2" style="margin-top:6px">
+        <div>
+          <label>Location</label>
+          <div class="row" style="grid-template-columns:1fr auto;gap:8px">
+            <input id="manualCity" type="text" placeholder="City / Town (optional)" />
+            <button class="btn btn-ghost" id="locBtn">📍 Use my location</button>
+          </div>
+          <div class="footer-note muted" id="locNote">Location helps us find nearby colleges. We only use it in your browser.</div>
+        </div>
+        <div>
+          <label>Search radius (km)</label>
+          <input type="number" id="radius" min="5" max="200" step="5" value="30" />
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:14px">
+        <button class="btn btn-primary" id="goBtn">⚡ Get Recommendations</button>
+        <button class="btn btn-ghost" id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <!-- Right: Results -->
+    <section class="card results-section" id="resultsCard">
+      <h2>Your Recommendations</h2>
+      <div id="summary" class="muted">Complete the questionnaire to see personalized results.</div>
+
+      <div style="margin-top:14px">
+        <h3>Suggested streams</h3>
+        <div id="streamBadges"></div>
+      </div>
+
+      <div style="margin-top:14px">
+        <h3>Top course matches</h3>
+        <div class="grid row-2" id="courseGrid"></div>
+      </div>
+
+      <div style="margin-top:14px">
+        <h3>Nearby government colleges</h3>
+        <div id="collegeList"></div>
+      </div>
+      <h2>Nearby Colleges</h2>
+
+<div id="map" style="height:400px;width: 100%; margin-top:20px; border:1px solid #ccc;"></div>
+
+      <div style="margin-top:14px">
+        <h3>Career paths you can explore</h3>
+        <div id="careerChips"></div>
+      </div>
+
+      <div style="margin-top:14px">
+        <h3>Study materials (free/open)</h3>
+        <div id="materialsList"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="/dockurSIH/JS/career-path.js"></script>
+</body>
+
+</html>

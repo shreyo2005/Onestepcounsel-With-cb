@@ -18,8 +18,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(to right, #620162, #a609968f);
-      color: rgba(255, 7, 234, 0.618);
+     background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
       text-align: center;
       
       
@@ -243,79 +243,73 @@
     }
     /*  */
   .card-container {
-  display: flex;
-  justify-content: center; /* centers cards horizontally */
-  align-items: stretch;    /* makes all cards same height */
-  gap: 40px;               /* spacing between cards */
-  margin-top: 100px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 6fr 6fr;
+  grid-template-columns: 6fr 6fr;
 }
-.card {
-  flex: 1;                        /* allows equal width if needed */
-  max-width: 250px;               /* limit size */
-  background: white;
-  padding: 50px 20px;
-  border-radius: 40px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Hover + active effects */
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-}
-.card:active {
-  transform: scale(0.95);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-}
-
-.card p {
+.card{
+ border-top:20px solid linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
   color: black;
-}
-.learn-btn {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 20px;
-  background-color: #007bff; /* blue button */
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.learn-btn:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-.learn-btn:active {
-  transform: scale(0.95);
-}
-.career-list {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 20px;
-  font-size: 0.85rem;
-  color: #444;
+  padding: 4rem;
   text-align: center;
+  border-radius: 20px;
+  margin: 40px;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+transition: box-shadow 0.3s;
 }
-
-.career-list li {
-  margin: 3px 0;
+#c1{
+border-top: 6px solid rgb(54, 108, 255) ;
 }
-.card-headings{
-  color: black;
+#c2{
+border-top: 6px solid rgb(109, 213, 4) ;
+}
+#c3{
+border-top: 6px solid rgb(185, 79, 255) ;
+}
+#c4{
+border-top: 6px solid rgb(255, 129, 38) ;
+}
+.card:hover{
+  box-shadow: none;
+}
+.card ul{
+  display: flex;
+  justify-content: space-around;
+  gap: 2px;
+}
+.card ul li{
+  background-color: #efefef;
+  width: 20%;
+  text-align: center;
+  border-radius: 20px;
+  list-style: none;
+  padding: 2px;
+  margin: 2px;
+}
+.learn-btn{
+  width: 90%;
+  height: 6vh;
+  margin-top: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  transition: box-shadow 0.2s;
+  border-radius: 12px;
+  color: white;
+  background: rgb(209, 209, 209);
+}
+.learn-btn:hover{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
 }
 .not-sure {
   text-align: center;
+  height: 30vh;
+  text-align: center;
   margin-top: 60px;
-  background: #f9f9f9;
+background: #ffffff;
+background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(252, 176, 69, 1) 100%);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .not-sure h2 {
@@ -382,8 +376,11 @@
   font-size: 1rem;
   color: #333;
   font-weight: 500;
+  transition: box-shadow 0.3s;
 }
-
+.point:hover{
+  box-shadow: none;
+}
 .nep-buttons {
   display: flex;
   justify-content: center;
@@ -409,10 +406,47 @@
   transform: scale(1.05);
   box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
+.features{
+  height: 50vh;
+  display: grid;
+  grid-template-rows: 6fr 6fr;
+  grid-template-columns: 6fr 6fr;
+  margin-left:80px;
+  margin-right:80px;
+  gap: 30px;
+  height: 18vh;
+  margin-top: 10vh;
+  margin-bottom: 30vh;
+}
+.top-left{
+  border-radius: 8px;
+  padding: 8px;
+  height: 18vh;
+  background-color: #0077ff;
+}
+.top-right{
+    padding: 8px;
+      border-radius: 8px;
+  height: 18vh;
+  background-color: #9d07b8;
+}
+.bottom-left{
+    padding: 8px;
+  height: 18vh;
+    border-radius: 8px;
+  background-color: rgb(85, 208, 41);
+}
+.bottom-right{
+    padding: 8px;
+  height: 18vh;
+    border-radius: 8px;
+  background-color: rgb(255, 182, 25);
+}
 .guidance-section {
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin-top: 100px;
   margin: 60px auto;
   max-width: 1100px;
   flex-wrap: wrap; /* mobile-friendly */
