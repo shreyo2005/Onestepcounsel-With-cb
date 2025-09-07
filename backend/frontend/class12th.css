@@ -1,0 +1,662 @@
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
+        nav {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+        .back-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            background-color: #e5e7eb;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+            border: none;
+        }
+        .back-button:hover {
+            background-color: #d1d5db;
+        }
+        .back-button:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 2px #9ca3af;
+        }
+        .back-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #4b5563;
+        }
+        .text-content {
+            margin-left: 1rem;
+        }
+        .main-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a237e;
+            letter-spacing: -0.025em;
+        }
+        .sub-heading {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        main {
+            padding: 1rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .text-content {
+                margin-left: 1.5rem;
+            }
+            .main-heading {
+                font-size: 1.5rem;
+            }
+            .sub-heading {
+                font-size: 1rem;
+            }
+            main {
+                padding: 1.5rem;
+            }
+        }
+
+        .section-container {
+            padding: 2rem 0;
+        }
+        .section-container .grade-badge {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background-color: #81c784;
+            border-radius: 0.75rem;
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        .section-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a237e;
+        }
+        .section-container p {
+                        text-align: center;
+            color: #6b7280;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        /* Styles for the College Selection Section */
+        .college-selection-section {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .college-selection-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a237e;
+            text-align: center;
+        }
+
+        .college-card-container {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: center;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .college-card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .college-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .college-card-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .engineering-icon { background-color: #c5cae9; }
+        .medical-icon { background-color: #c8e6c9; }
+        .commerce-icon { background-color: #d1c4e9; }
+        .arts-icon { background-color: #ffecb3; }
+
+        .icon-path-engineering { fill: #3f51b5; }
+        .icon-path-medical { fill: #4caf50; }
+        .icon-path-commerce { fill: #9c27b0; }
+        .icon-path-arts { fill: #ff9800; }
+
+
+        .card-title-group {
+            text-align: left;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a237e;
+        }
+        .card-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .card-content {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .card-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin-top: 0.75rem;
+        }
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .tag {
+            background-color: #e5e7eb;
+            color: #4b5563;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            text-transform: capitalize;
+        }
+        .light-tag { background-color: #e5e7eb; color: #4b5563; }
+        .college-details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            background-color: #f0f4f8;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        @media (min-width: 640px) {
+            .college-details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .details-item {
+            text-align: left;
+        }
+        .details-item h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin: 0;
+        }
+        .details-item p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin: 0.25rem 0 0 0;
+        }
+        .details-item-package p {
+            color: #4caf50;
+            font-weight: 600;
+        }
+        
+        /* Styles for the Exam Preparation Section */
+        .exam-prep-section {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .exam-prep-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a237e;
+            text-align: center;
+        }
+
+        .exam-card-container {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: center;
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        .exam-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e5e7eb;
+        }
+
+        .exam-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exam-card-title-group {
+            text-align: left;
+        }
+
+        .exam-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a237e;
+        }
+
+        .exam-card-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .exam-card-badge-high {
+            background-color: #ef4444;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+        
+        .exam-card-badge-moderate {
+            background-color: #e5e7eb;
+            color: #4b5563;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+
+        .exam-card-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin-top: 1rem;
+        }
+
+        .exam-card-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+        
+        .exam-card-content li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .exam-card-content li::before {
+            content: "•";
+            color: #1a237e;
+            font-size: 1.25rem;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Styles for the Scholarship Section */
+        .scholarship-section {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .scholarship-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a237e;
+            text-align: center;
+        }
+
+        .scholarship-card-container {
+            display: grid;
+            gap: 1.5rem;
+            text-align: left;
+            margin-top: 2rem;
+            justify-content: center;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .scholarship-card-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .scholarship-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .scholarship-card-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            background-color: #ffecb3;
+            color: #ff9800;
+            margin-bottom: 1rem;
+        }
+
+        .scholarship-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin-bottom: 0.25rem;
+        }
+
+        .scholarship-card-details {
+            width: 100%;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .scholarship-card-details h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin-bottom: 0.25rem;
+        }
+
+        .scholarship-card-details p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+            text-align: left;
+        }
+
+        .scholarship-amount {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .tag-container-scholarship {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Styles for Future Scope Section */
+        .future-scope-section {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .future-scope-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a237e;
+            text-align: center;
+        }
+
+        .future-scope-card-container {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: center;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .future-scope-card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .future-scope-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .future-scope-card-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .future-scope-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .engineering-scope-icon { background-color: #c5cae9; }
+        .medical-scope-icon { background-color: #c8e6c9; }
+        .business-scope-icon { background-color: #d1c4e9; }
+        .arts-scope-icon { background-color: #ffecb3; }
+
+        .scope-icon-path-engineering { fill: #3f51b5; }
+        .scope-icon-path-medical { fill: #4caf50; }
+        .scope-icon-path-business { fill: #9c27b0; }
+        .scope-icon-path-arts { fill: #ff9800; }
+
+        .future-scope-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a237e;
+        }
+        
+        .scope-content {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .scope-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin-top: 0.75rem;
+        }
+
+        .scope-details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            background-color: #f0f4f8;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .scope-details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .details-item-scope {
+            text-align: left;
+        }
+
+        .details-item-scope h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin: 0;
+        }
+
+        .details-item-scope p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin: 0.25rem 0 0 0;
+        }
+        
+        .details-item-scope-growth p {
+            color: #4caf50;
+            font-weight: 600;
+        }
+        
+        .timeline-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a237e;
+            text-align: center;
+        }
+
+        .timeline-container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .timeline-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        .timeline-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1rem;
+        }
+
+        .timeline-icon-1 { background-color: #d1c4e9; }
+        .timeline-icon-2 { background-color: #c5cae9; }
+        .timeline-icon-3 { background-color: #c8e6c9; }
+        .timeline-icon-4 { background-color: #ffecb3; }
+
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-description {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .ready-next-chapter {
+            margin-top: 2rem;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            background: linear-gradient(to right, #4caf50, #2196f3);
+        }
+        
+        .ready-next-chapter h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .ready-next-chapter p {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .ready-next-chapter button {
+            margin-top: 1.5rem;
+            background-color: white;
+            color: #1a237e;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        .ready-next-chapter button:hover {
+            background-color: #f0f4f8;
+        }
