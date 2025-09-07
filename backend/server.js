@@ -55,6 +55,19 @@ app.post("/recommendations", (req, res) => {
   res.json({ recommendations: results });
 });
 
+
+
+// Example Class 10 page
+app.get("/class10th", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "class10th.html"));
+});
+
+// Example Class 12 page
+app.get("/class12th", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "class12th.html"));
+});
+
+
 // --- Start Server ---
 const PORT = 5500;
 app.listen(PORT, () => {
