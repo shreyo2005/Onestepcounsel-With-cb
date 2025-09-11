@@ -77,7 +77,7 @@
 </body>
 </html> -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -152,8 +152,76 @@
     <button class="back-btn" onclick="window.location.href='courses.html'">⬅ Back to Profile</button>
   </div>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <!-- Dataset -->
-  <script type="module" src="./jk_colleges.js"></script>
+  Dataset -->
+  <!-- <script type="module" src="./jk_colleges.js"></script>
+  <script src="recommendations.js"></script>
+</body>
+</html>  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommended Colleges</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .college-card {
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+      transition: 0.3s;
+    }
+    .college-card:hover {
+      background: #f0f8ff;
+    }
+    .back-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .back-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Your Recommended Colleges</h2>
+    <div id="recommendations"></div>
+    <div id="map" style="height: 400px; margin-top: 20px; border-radius: 8px;"></div>
+    <button class="back-btn" onclick="window.location.href='profile.html'">⬅ Back to Profile</button>
+  </div>
+
   <script src="recommendations.js"></script>
 </body>
 </html> 

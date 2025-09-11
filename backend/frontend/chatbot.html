@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Chatbot</title>
+  <style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f2f5, #d9e4f5);
+    margin: 0;
+    padding: 0;
+  }
+
+  .chat-container {
+    width: 100%;
+    max-width: 420px;
+    height: 80vh;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  .message {
+    margin: 8px 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 75%;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .user {
+    background: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+  }
+
+  .bot {
+    background: #f1f1f1;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+  }
+
+  .input-container {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    background: #fafafa;
+  }
+
+  #user-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: border 0.2s;
+  }
+
+  #user-input:focus {
+    border-color: #007bff;
+  }
+
+  #send-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+
+  #send-btn:hover {
+    background: #0056b3;
+  }
+
+  #back-btn {
+    margin: 10px;
+    background: #555;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+
+  #back-btn:hover {
+    background: #333;
+  }
+
+  /* Scrollbar styling */
+  .chat-box::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .chat-box::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+  }
+
+  /* Smooth animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 500px) {
+    .chat-container {
+      width: 95%;
+      height: 85vh;
+      margin: 20px auto;
+    }
+    #send-btn {
+      padding: 10px 12px;
+    }
+    #user-input {
+      font-size: 13px;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <button id="back-btn" onclick="window.location.href='/'">← Back to Homepage</button>
+
+  <div class="chat-container">
+    <div id="chat-box" class="chat-box"></div>
+    <div class="input-container">
+      <input id="user-input" type="text" placeholder="Type your question..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById("chat-box");
+    const userInput = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    function appendMessage(sender, message) {
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("message", sender);
+      msgDiv.innerText = message;
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      appendMessage("user", message);
+      userInput.value = "";
+
+      try {
+        const res = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message }),
+        });
+
+        const data = await res.json();
+        if (data.reply) {
+          appendMessage("bot", data.reply);
+        } else {
+          appendMessage("bot", "⚠️ No response from chatbot");
+        }
+      } catch (err) {
+        appendMessage("bot", "⚠️ Something went wrong with the chatbot");
+        console.error(err);
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+
+    // Send on Enter key press
+    userInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>

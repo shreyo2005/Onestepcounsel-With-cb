@@ -1,0 +1,235 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Choose Course</title>
+  <link rel="stylesheet" href="courses.css">
+</head>
+<body>
+  <div class ="top"></div>
+  <h2>Enter Your Desired Course</h2>
+  <form action="/courses" method="POST">
+    <label>Course Name:</label>
+    <input type="text" name="course" required>
+    <button type="submit">Submit</button>
+  </form>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="courses.js"></script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Form</title>
+    <link rel="stylesheet" href="courses.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <form id="profileForm">
+            <div class="form-section">
+                <div class="section-title">
+                    <span class="material-icons">person</span>
+                    <h2>Personal Information</h2>
+                </div>
+                <div class="input-group">
+                    <div class="form-control">
+                        <label for="age">Age</label>
+                        <input type="text" id="age" name="age" pattern="\d{1,2}" maxlength="2" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="grade">Current Grade</label>
+                        <select id="grade" name="grade">
+                            <option value="" disabled selected>Select your grade</option>
+                            <option value="9">9th Grade</option>
+                            <option value="10">10th Grade</option>
+                            <option value="11">11th Grade</option>
+                            <option value="12">12th Grade</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="location">Location (City, State)</label>
+                    <input type="text" id="location" name="location" placeholder="e.g., Mumbai, Maharashtra" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">
+                    <span class="material-icons">school</span>
+                    <h2>Academic Interests</h2>
+                </div>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="math" name="interests" value="Mathematics">
+                        <label for="math">Mathematics</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="science" name="interests" value="Science">
+                        <label for="science">Science</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="literature" name="interests" value="Literature">
+                        <label for="literature">Literature</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="arts" name="interests" value="Arts">
+                        <label for="arts">Arts</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="commerce" name="interests" value="Commerce">
+                        <label for="commerce">Commerce</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="technology" name="interests" value="Technology">
+                        <label for="technology">Technology</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="social-studies" name="interests" value="Social Studies">
+                        <label for="social-studies">Social Studies</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="languages" name="interests" value="Languages">
+                        <label for="languages">Languages</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="sports" name="interests" value="Sports">
+                        <label for="sports">Sports</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="music" name="interests" value="Music">
+                        <label for="music">Music</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="section-title">
+                    <span class="material-icons">work</span>
+                    <h2>Career Goals (Optional)</h2>
+                </div>
+                <p>What careers are you interested in exploring?</p>
+                <div id="career-goals-container">
+                    </div>
+                <button type="button" id="addCareerGoal" class="add-button">
+                    <span class="material-icons">add</span> Add Career Goal
+                </button>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="cancel-button">Cancel</button>
+                <button type="submit" class="save-button">
+                    <span class="material-icons">lock</span> Save Profile
+                </button>
+            </div>
+        </form>
+    </div>
+    <div id="recommendations"></div>
+
+
+    <script type="module" src="courses.js"></script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Form</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="courses.css">
+  
+    
+    
+</head>
+<body>
+  <div class="form-container">
+    <form id="profileForm">
+      <!-- Personal Information -->
+      <div class="form-section">
+        <div class="section-title">
+          <span class="material-icons">person</span>
+          <h2>Personal Information</h2>
+        </div>
+        <div class="input-group">
+          <div class="form-control">
+            <label for="age">Age</label>
+            <input type="text" id="age" name="age" pattern="\d{1,2}" maxlength="2" required>
+          </div>
+          <div class="form-control">
+            <label for="grade">Current Grade</label>
+            <select id="grade" name="grade" required>
+              <option value="" disabled selected>Select your grade</option>
+              <option value="9">9th Grade</option>
+              <option value="10">10th Grade</option>
+              <option value="11">11th Grade</option>
+              <option value="12">12th Grade</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label for="district">District</label>
+          <input type="text" id="district" name="district" placeholder="e.g., Mumbai" required>
+        </div>
+        <div class="form-control">
+          <label for="rank">Your Rank</label>
+          <input type="number" id="rank" name="rank" placeholder="e.g., 150" required>
+        </div>
+      </div>
+
+      <!-- Academic Interests -->
+      <div class="form-section">
+        <div class="section-title">
+          <span class="material-icons">school</span>
+          <h2>Academic Interests</h2>
+        </div>
+        <div class="checkbox-group">
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Mathematics"> Mathematics</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Science"> Science</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Literature"> Literature</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Arts"> Arts</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Commerce"> Commerce</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Technology"> Technology</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Social Studies"> Social Studies</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Languages"> Languages</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Sports"> Sports</div>
+          <div class="checkbox-item"><input type="checkbox" name="interests" value="Music"> Music</div>
+        </div>
+      </div>
+
+      <!-- Career Goals -->
+      <div class="form-section">
+        <div class="section-title">
+          <span class="material-icons">work</span>
+          <h2>Career Goals (Optional)</h2>
+        </div>
+        <p>What careers are you interested in exploring?</p>
+        <div id="career-goals-container"></div>
+        <button type="button" id="addCareerGoal">Add Career Goal</button>
+      </div>
+
+      <!-- Submit Buttons -->
+      <div class="button-group">
+        <button type="button" class="cancel-button">Cancel</button>
+        <button type="submit" class="save-button">Save Profile</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="recommendations"></div>
+
+  <script type="module" src="courses.js"></script>
+</body>
+</html>
+
