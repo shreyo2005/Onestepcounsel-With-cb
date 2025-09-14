@@ -1,0 +1,693 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: white;
+    min-height: 100vh;
+}
+/* Section - 1 : Introduction */
+.container {
+    width: 93%;
+    margin: 40px auto 0 auto;
+    background: linear-gradient(135deg, #3b2793 0%, #7b1fa8 100%);
+    border-radius: 20px;
+    box-shadow: 0 6px 32px rgba(80, 0, 120, 0.22);
+    padding: 32px 40px 0 40px;
+}
+
+.stream-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(114, 93, 223, 0.08);
+    color: #d6ccfa;
+    font-size: 16px;
+    padding: 7px 18px;
+    border-radius: 16px;
+    width: fit-content;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.stream-badge img {
+    width: 23px;
+    height: 23px;
+    vertical-align: middle;
+}
+
+h1 {
+    color: white;
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.highlight {
+    color: #9b87ff;
+}
+
+.desc {
+    color: #c3b3eb;
+    font-size: 1.09rem;
+    margin-bottom: 22px;
+}
+
+.button-group {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 34px;
+}
+
+.button-group button,
+.button-group a {
+    font-size: 1.07rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 9px;
+    padding: 13px 30px;
+    cursor: pointer;
+    transition: background 0.22s, color 0.22s;
+    margin-bottom: 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-quiz {
+    background: linear-gradient(90deg, #8863fd 0%, #4cb2ff 100%);
+    color: white;
+}
+
+.btn-quiz:hover {
+    background: linear-gradient(90deg, #7c4cfc 0%, #3699f8 100%);
+}
+
+.btn-career {
+    background: #eae9fd;
+    color: #675dd5;
+}
+
+.btn-career:hover {
+    background: #e1ddfa;
+    color: #6d53e5;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 38px 0 28px 0;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+}
+
+.stat .icon-bg {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    font-size: 23px;
+}
+
+.stat1 .icon-bg {
+    background: rgba(89, 106, 233, 0.20);
+    color: #6d7dff;
+}
+
+.stat2 .icon-bg {
+    background: rgba(139, 98, 255, 0.12);
+    color: #bc82ff;
+}
+
+.stat3 .icon-bg {
+    background: rgba(27, 196, 74, 0.12);
+    color: #49c660;
+}
+
+.stat4 .icon-bg {
+    background: rgba(255, 118, 39, 0.15);
+    color: #ff7627;
+}
+
+.stat .stat-value {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.stat .stat-label {
+    color: #bdb2e6;
+    font-size: 1.01rem;
+    margin-top: 2px;
+}
+
+.image-section {
+  margin: 8px 0 0 0; /* Remove negative horizontal margins */
+  width: 100%;       /* Make container full width */
+  background: rgba(24,20,54,0.11);
+  border-radius: 0 0 20px 20px; /* Optionally keep bottom rounding */
+  padding: 30px 0 0 0;
+  text-align: center;
+  height: 500px;
+}
+
+.image-section img {
+  width: 100%; /* stretch image to fill container width */
+  height: 100%;
+  border-radius: 0 0 20px 20px; /* match container rounding */
+  box-shadow: 0 4px 18px rgba(60,20,150,0.08);
+  margin-bottom: -2px;
+  object-fit: cover; /* ensure proper fit in container */
+  display: block;
+}
+
+@media (max-width: 750px) {
+    .container {
+        width: 96vw;
+        padding: 18px 10px 0 10px;
+    }
+
+    .image-section img {
+        max-width: 98vw;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        gap: 17px;
+    }
+}
+
+/* --- Popular Science Entrance Exams Section --- */
+
+.entrance-exams-section {
+  padding: 60px 0 60px 0;
+  background: #f7f8fc;
+  width: 100%;
+}
+
+.exams-header {
+  text-align: center;
+  margin-bottom: 46px;
+}
+
+.exams-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+  letter-spacing: -1.2px;
+}
+
+.exams-subtitle {
+  font-size: 1.15rem;
+  color: #666f83;
+}
+
+.exams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 40px;     /* Wide gaps for laptop/desktop */
+  max-width: 1380px;  /* Controls overall grid width */
+  margin: 0 auto;
+  padding: 0 30px;    /* Horizontal padding for grid */
+}
+
+@media (max-width: 1200px) {
+  .exams-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 940px;
+    gap: 28px 20px;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 850px) {
+  .exams-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 98vw;
+    padding: 0 6vw;
+  }
+}
+
+.exam-card {
+  background: #fff;
+  box-shadow: 0 2px 20px rgba(100,120,180,0.10);
+  border-radius: 15px;
+  padding: 34px 28px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 372px;
+  border: 1px solid #ecedf7;
+  transition: box-shadow 0.22s, border-color 0.22s;
+}
+
+.exam-card:hover {
+  box-shadow: 0 8px 36px rgba(0,60,120,0.12);
+  border-color: #dedbfd;
+}
+
+.exam-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.exam-icon {
+  width: 36px;
+  height: 36px;
+  margin-right: 13px;
+}
+
+.exam-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.89rem;
+  font-weight: 600;
+  padding: 5px 16px;
+  margin-left: 4px;
+  border-radius: 13px;
+  letter-spacing: 0.035em;
+}
+.badge-blue { background: #e3eaff; color: #3574e9; }
+.badge-green { background: #e6f6ea; color: #1aa475; }
+.badge-yellow { background: #fcf3d7; color: #d2ab31; }
+.badge-red { background: #fde9ea; color: #d84242; }
+.badge-purple { background: #f1ebfd; color: #8442d8; }
+
+.exam-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #2e335b;
+  margin-bottom: 5px;
+  margin-top: 3px;
+}
+
+.exam-desc-title {
+  color: #8e94ab;
+  font-size: 1.04rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.exam-desc {
+  font-size: 1.01rem;
+  color: #7a7d92;
+  margin-bottom: 15px;
+}
+
+.exam-attributes {
+  font-size: 1.05rem;
+  color: #424464;
+  padding-left: 0;
+  margin: 0 0 12px 0;
+  list-style: none;
+}
+
+.exam-attributes li {
+  margin-bottom: 3px;
+}
+
+.subjects {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.subject {
+  background: #f4f5fa;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 0.95rem;
+  color: #495485;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  margin-bottom: 3px;
+}
+
+.prep-guide-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.15rem;
+  color: #31387d;
+  text-decoration: none;
+  background: #f9fafd;
+  border-radius: 10px;
+  padding: 10px 16px 10px 12px;
+  margin-top: 10px;
+  font-weight: 600;
+  box-shadow: none;
+  border: 1.3px solid #f1f0fa;
+  width: fit-content;
+  transition: background 0.14s;
+}
+
+.prep-guide-link:hover {
+  background: #e0ebfa;
+}
+
+.prep-guide-icon {
+  display: flex;
+  align-items: center;
+}
+
+.open-icon {
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* NPTEL SECTION */
+.nptel-section {
+  background: #fafbff;
+  padding: 60px 0 60px 0;
+}
+
+.nptel-header {
+  margin-bottom: 44px;
+  text-align: center;
+}
+
+.nptel-header h2 {
+  font-size: 2.35rem;
+  font-weight: 700;
+  margin-bottom: 13px;
+  color: #181c31;
+  letter-spacing: -1px;
+}
+
+.nptel-subtitle {
+  font-size: 1.13rem;
+  color: #687393;
+  margin-bottom: 26px;
+}
+
+.nptel-icons-row {
+  display: flex;
+  justify-content: center;
+  gap: 46px;
+  margin-bottom: 0;
+}
+.nptel-icon-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.03rem;
+  color: #666f83;
+  font-weight: 500;
+}
+.nptel-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* New container for subject and courses */
+.nptel-subject-section {
+  max-width: 1100px;
+  margin: 0 auto 43px auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nptel-subject-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  margin-left: 0; /* updated to 0 */
+}
+
+.subject-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 11px;
+  font-size: 1.21rem;
+  font-weight: 700;
+  margin-right: 13px;
+  color: #fff;
+}
+.physics-bg { background: #4964e6; }
+.chemistry-bg { background: #22b384; }
+.math-bg { background: #9651ea; }
+.biology-bg { background: #e98034; }
+
+.nptel-courses-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 36px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1000px) {
+  .nptel-courses-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 97vw;
+  }
+}
+
+.nptel-course-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 14px rgba(110,120,180,0.09);
+  padding: 28px 26px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  border: 1.2px solid #ededfe;
+  transition: box-shadow 0.18s, border-color 0.18s;
+  position: relative;
+}
+
+.nptel-course-card:hover {
+  box-shadow: 0 7px 30px rgba(40,64,130,0.14);
+  border-color: #dedbfd;
+}
+
+.card-upper {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.playicon-bg {
+  background: linear-gradient(135deg, #ffae63 0%, #fe543f 90%);
+  border-radius: 7px;
+  padding: 3px 4px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.level-badge {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 7px;
+  padding: 4px 13px;
+  margin-left: 12px;
+  letter-spacing: 0.01em;
+  margin-top: 3px;
+}
+.level-badge.beginner { background: #e5faed; color: #13af54; }
+.level-badge.intermediate { background: #f7f5d6; color: #b2a02b; }
+.level-badge.advanced { background: #fbe4e4; color: #d74747; }
+
+.course-title {
+  font-size: 1.07rem;
+  font-weight: 700;
+  color: #232544;
+  margin-bottom: 2px;
+  margin-top: 12px;
+}
+
+.course-prof {
+  font-size: 0.99rem;
+  color: #566095;
+  margin-bottom: 5px;
+}
+
+.course-desc {
+  font-size: 0.99rem;
+  color: #656f8b;
+  margin-bottom: 14px;
+}
+
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #7c7c92;
+  font-size: 0.97rem;
+  margin-bottom: 13px;
+}
+
+.start-btn {
+  background: linear-gradient(90deg, #fc9b30 0%, #ff473e 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 11px 0;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-size: 1.04rem;
+  text-align: center;
+  text-decoration: none;
+  margin-top: auto;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(250, 80, 0, 0.06);
+  transition: background 0.13s;
+  display: block;
+}
+.start-btn:hover {
+  background: linear-gradient(90deg, #fa7e1e 0%, #ea3f3f 100%);
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .nptel-section {
+    padding: 17px 0 35px 0;
+  }
+  .nptel-header h2 {
+    font-size: 1.2rem;
+  }
+  .nptel-courses-row {
+    grid-template-columns: 1fr;
+    padding: 0 2vw;
+  }
+  .nptel-course-card {
+    padding: 19px 11px 18px 11px;
+  }
+  .nptel-subject-title {
+    font-size: 1.01rem;
+  }
+}
+/* About NPTEL Section */
+.about-nptel-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 0 45px 0;
+  background: #fafbff;
+}
+
+.about-nptel-bg {
+  width: 90%;
+  max-width: 1150px;
+  background: linear-gradient(135deg, #fdf4e7 65%, #faecea 100%);
+  border-radius: 19px;
+  box-shadow: 0 2px 18px rgba(220,100,60,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 45px 10vw 50px 10vw;
+  margin: 0 auto;
+}
+
+.about-nptel-icon {
+  width: 66px;
+  height: 66px;
+  background: #fc885e;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.about-nptel-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.about-nptel-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #21202A;
+  margin-bottom: 10px;
+  margin-top: 0;
+  letter-spacing: -1px;
+}
+
+.about-nptel-desc {
+  color: #4a4e5d;
+  font-size: 1.12rem;
+  margin-bottom: 40px;
+  max-width: 900px;
+  line-height: 1.55;
+}
+
+.about-nptel-btn-row {
+  display: flex;
+  gap: 26px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-nptel-btn {
+  display: flex;
+  align-items: center;
+  font-size: 1.07rem;
+  font-weight: 600;
+  padding: 13px 29px 13px 29px;
+  border-radius: 9px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(60,20,5,0.06);
+  transition: background 0.17s, color 0.17s;
+}
+.btn-light {
+  background: #fff;
+  color: #313145;
+  border: 1.1px solid #e7e9f0;
+}
+.btn-light:hover {
+  background: #f7f7f8;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #fa9339 0%, #fa6646 100%);
+  color: #fff;
+  border: none;
+}
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #f47325 0%, #f84029 100%);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .about-nptel-bg {
+    padding: 35px 3vw 35px 3vw;
+  }
+  .about-nptel-title {
+    font-size: 1.2rem;
+  }
+  .about-nptel-desc {
+    font-size: 1.01rem;
+    margin-bottom: 24px;
+  }
+  .about-nptel-btn-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Career Guidance - Class 10</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #6dd5ed, #2193b0);
+      color: #333;
+    }
+
+    header {
+      background: #004e92;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #004e92;
+    }
+
+    .question {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border-left: 6px solid #2193b0;
+      transition: transform 0.2s ease;
+    }
+
+    .question:hover {
+      transform: scale(1.02);
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    input[type="radio"] {
+      margin: 8px;
+      transform: scale(1.2);
+      accent-color: #004e92;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(to right, #004e92, #000428);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #000428, #004e92);
+    }
+
+    #result {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #004e92;
+      padding: 12px;
+      background: #e3f2fd;
+      border-radius: 10px;
+      display: none;
+    }
+
+    #map {
+      height: 500px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #004e92;
+      color: white;
+      margin-top: 30px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>Class 10 Career Guidance Quiz</header>
+  <div class="container">
+    <h2>Discover Your Ideal Stream</h2>
+
+    <form id="quizForm">
+      <div class="question">
+        <label>1. Do you enjoy solving math problems?</label><br>
+        <input type="radio" name="q1" value="Science"> Yes
+        <input type="radio" name="q1" value="Commerce"> Somewhat
+        <input type="radio" name="q1" value="Arts"> No
+      </div>
+
+      <div class="question">
+        <label>2. Do you like understanding how machines/nature work?</label><br>
+        <input type="radio" name="q2" value="Science"> Yes
+        <input type="radio" name="q2" value="Commerce"> Somewhat
+        <input type="radio" name="q2" value="Arts"> No
+      </div>
+
+      <div class="question">
+        <label>3. Do you like business, trade, or managing money?</label><br>
+        <input type="radio" name="q3" value="Commerce"> Yes
+        <input type="radio" name="q3" value="Science"> Somewhat
+        <input type="radio" name="q3" value="Arts"> No
+      </div>
+
+      <div class="question">
+        <label>4. Do you enjoy creative work (writing, painting, acting)?</label><br>
+        <input type="radio" name="q4" value="Arts"> Yes
+        <input type="radio" name="q4" value="Commerce"> Somewhat
+        <input type="radio" name="q4" value="Science"> No
+      </div>
+
+      <button type="button" onclick="calculateResult()">Get Recommendation</button>
+    </form>
+
+    <h3 id="result"></h3>
+    <div id="map"></div>
+  </div>
+
+  <footer>© 2025 Career Guidance | Built for Students</footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const colleges = [
+      { name: "GCET Jammu", stream: "Science", lat: 32.7266, lon: 74.8570 },
+      { name: "Islamia College Srinagar", stream: "Science", lat: 34.0837, lon: 74.7973 },
+      { name: "Government College of Commerce, Jammu", stream: "Commerce", lat: 32.7357, lon: 74.8643 },
+      { name: "Amar Singh College, Srinagar", stream: "Arts", lat: 34.0835, lon: 74.7974 }
+    ];
+
+    function calculateResult() {
+      let scores = { Science: 0, Commerce: 0, Arts: 0 };
+      let answers = document.querySelectorAll('input[type=radio]:checked');
+
+      if (answers.length < 4) {
+        alert("Please answer all questions!");
+        return;
+      }
+
+      answers.forEach(ans => {
+        scores[ans.value]++;
+      });
+
+      let recommended = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+      document.getElementById("result").innerText =
+        "✨ Recommended Stream: " + recommended;
+      document.getElementById("result").style.display = "block";
+
+      showMap(recommended);
+    }
+
+    function showMap(stream) {
+      document.getElementById("map").style.display = "block";
+      var map = L.map('map').setView([33.7782, 76.5762], 7);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18
+      }).addTo(map);
+
+      colleges.filter(c => c.stream === stream).forEach(c => {
+        L.marker([c.lat, c.lon]).addTo(map)
+          .bindPopup(`<b>${c.name}</b><br>Stream: ${c.stream}`);
+      });
+    }
+  </script>
+</body>
+</html>

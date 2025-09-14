@@ -28,6 +28,7 @@ app.get("/recommendations.html", (req, res) => res.sendFile(path.join(__dirname,
 app.get("/chatbot.html", (req, res) => res.sendFile(path.join(__dirname, "frontend", "chatbot.html")));
 app.get("/class10th", (req, res) => res.sendFile(path.join(__dirname, "frontend", "class10th.html")));
 app.get("/class12th", (req, res) => res.sendFile(path.join(__dirname, "frontend", "class12th.html")));
+app.get("/12-Science-Homepage",(req,res)=>res.sendFile(path.join(__dirname,'frontend',"12-Science-Homepage")));
 
 // Login route
 app.post("/login", (req, res) => {
@@ -81,6 +82,10 @@ app.post("/recommendations", (req, res) => {
 
   res.json({ recommendations: results });
 });
+
+
+
+
 
 app.post("/chat", async (req, res) => {
   const { message } = req.body;
